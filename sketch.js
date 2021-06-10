@@ -1,9 +1,9 @@
-const Engine = Matter.Engine;
-const World = Matter.World;
-const Bodies = Matter.Bodies;
-const Body = Matter.Body;
-const Render = Matter.Render;
-const Constraint=Matter.Constraint;
+const Engine = Libraries/Matter.Engine;
+const World = Libraries/Matter.World;
+const Bodies = Libraries/Matter.Bodies;
+const Body = Libraries/Matter.Body;
+const Render = Libraries/Matter.Render;
+const Constraint=Libraries/Matter.Constraint;
 var treeObj, stoneObj,groundObject, launcherObject;
 var mango1,mango2,mango3,mango4,mango5,mango6,mango7,mango8,mango9,mango10,mango11,mango12;
 var world,boy;
@@ -94,7 +94,7 @@ function draw() {
 
 function mouseDragged()
 {
-	Matter.Body.setPosition(stoneObj.body, {x:mouseX, y:mouseY}) 
+	Libraries/Matter.Body.setPosition(stoneObj.body, {x:mouseX, y:mouseY}) 
 }
 
 function mouseReleased()
@@ -105,16 +105,16 @@ function mouseReleased()
 
 function keyPressed() {
 	if (keyCode === 32) {
-    Matter.Body.setPosition(stoneObj.body, {x:235, y:420}) 
+    Libraries/Matter.Body.setPosition(stoneObj.body, {x:235, y:420}) 
 	  launcherObject.attach(stoneObj.body);
 	}
   }
 
   function detectollision(lstone,lmango){
-	/*var collision = Matter.SAT.collides(lstone,lmango);
+	/*var collision = Libraries/Matter.SAT.collides(lstone,lmango);
 	if(collision.collided){
 		console.log("collided");
-		Matter.Body.setStatic(lmango,false);	
+		Libraries/Matter.Body.setStatic(lmango,false);	
 	}*/
   mangoBodyPosition=lmango.body.position
   stoneBodyPosition=lstone.body.position
@@ -125,7 +125,7 @@ function keyPressed() {
   	if(distance<=lmango.r+lstone.r)
     {
       //console.log(distance);
-  	  Matter.Body.setStatic(lmango.body,false);
+  	  Libraries/Matter.Body.setStatic(lmango.body,false);
     }
 
   }
